@@ -34,17 +34,20 @@ input {
 }
 
 .gender {
-    margin: 10px 0;
+    margin:auto
 }
 button {
-    padding: 10px;
-    background-color: #d6ccc2; /* pastel brown */
-    border: none;
-    cursor: pointer;
-    color: black;
+     padding: 10px 60px;
+  background-color: burlywood;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+    
 }
 button:hover {
-    background-color: #cbbfb6;
+    background-color: brown;
 }
 
 #result {
