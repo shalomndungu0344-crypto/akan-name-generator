@@ -36,3 +36,19 @@ input {
 .gender {
     margin: 10px 0;
 }
+button {
+    padding: 10px;
+    background-color: #d6ccc2; /* pastel brown */
+    border: none;
+    cursor: pointer;
+    color: black;
+}
+button:hover {
+    background-color: #cbbfb6;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
