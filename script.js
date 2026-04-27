@@ -7,3 +7,4 @@ function getAkanName() {
     let year = parseInt(document.getElementById("year").value);
 
     let gender = document.querySelector('input[name="gender"]:checked');
+    
