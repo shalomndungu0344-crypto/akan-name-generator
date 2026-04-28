@@ -1,21 +1,30 @@
+//get form and use submit event to run the akan name function
+let formSubmit = document.getElementById("form-id");
+let resetForm = document.getElementById("reset-form");
+
+formSubmit.addEventListener("submit", displayName);
+formSubmit.addEventListener("submit", handleForm);
+resetForm.addEventListener("click", hideName);
+
 function getAkanName() {
-  // Get inputs
-  let userName = document.getElementById("username").value;
-  let DD = parseInt(document.getElementById("day").value);
-  let MM = parseInt(document.getElementById("month").value);
-  let year = parseInt(document.getElementById("year").value);
+  //capture form input values
 
-  
+  let fullName = document.getElementById("full-name").value;
+  let gender = document.getElementById("gender").value;
+  let birthDate = document.getElementById("birth-date").value;
 
-  // Get gender
-  let genderElement = document.querySelector('input[name="gender"]:checked');
-  let gender = genderElement ? genderElement.value : "";
+  //to note: javascript stores days in a list like array where sunday is equal to index 0
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  //akan names stored in lists the names are stored in index corresponding to the days list
 
-  // Century and year parts
-  let CC = Math.floor(year / 100);
-  let YY = year % 100;
-
-  // Akan names
   const maleNames = [
     "Kwasi",
     "Kwadwo",
@@ -34,44 +43,40 @@ function getAkanName() {
     "Afua",
     "Ama",
   ];
-  const daysOfWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
-  // Calculate day index
-  let d =
-    (DD +
-      Math.floor((13 * (MM + 1)) / 5) +
-      YY +
-      Math.floor(YY / 4) +
-      Math.floor(CC / 4) -
-      2 * CC) %
-    7;
+  /* splits date input use the arguments to create a javascript date object
+where the get day method returns a number that represents day of the week.
+refer to above comments */
+  let birthDay = birthDate.split("-");
+  let birthday = new Date(
+    parseInt(birthDay[0]),
+    parseInt(birthDay[1]) - 1,
+    parseInt(birthDay[2]),
+  );
+  let day1 = birthday.getDay();
 
-  // Fix negative values
-  if (d < 0) {
-    d = (d + 7) % 7;
-  }
-
-  // Get Akan name
-  let akanName;
-
-  if (gender === "male") {
-    akanName = maleNames[d];
+  if (gender === "female") {
+    return `Hey ${fullName}, you were born on a ${days[day1]}.
+    your Akan name is ${femaleNames[day1]} `;
   } else {
-    akanName = femaleNames[d];
+    return `Hey ${fullName}, you were born on a ${days[day1]}.
+    your Akan name is ${maleNames[day1]} `;
   }
-
-  // Display result
-  document.getElementById("result").textContent =
-    userName + ", your Akan name is: " + akanName;
 }
-function clearResult() {
-    document.getElementById("result").textContent = "";
+
+//prevents form from submitting hence prevents form refresh
+function handleForm(event) {
+  event.preventDefault();
+}
+
+//displays results of the getAkanName function
+function displayName() {
+  message = getAkanName();
+  results = document.getElementById("results");
+  results.textContent = message;
+}
+//sets the text in the results div to empty when reset is clicked
+function hideName() {
+  results = document.getElementById("results");
+  results.textContent = "";
 }
