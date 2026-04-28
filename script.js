@@ -34,6 +34,15 @@ function getAkanName() {
     "Afua",
     "Ama",
   ];
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   // Calculate day index
   let d =
