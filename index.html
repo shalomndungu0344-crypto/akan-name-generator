@@ -4,60 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="styles.css">
+  <title>HOME</title>
 </head>
 <body>
-     <div class="main-container">
+ <section>
+  <div class="container">
 
-
-        <!-- LEFT SIDE (IMAGE) -->
-        <div class="left">
-             <img src="akan.jpg" alt="Akan culture">
-        </div>
-         <!-- RIGHT SIDE (CONTENT) -->
-        <div class="right">
-            <h1>Akan Name Generator</h1>
-             <p>
-        Akan names are derived from Ghanian culture. <br>
-        Frequently in Ghana, children are given their first name as a 'day name' 
-        which corresponds to the day in the week they were born. <br><br>
-        <strong> Fill your details below to know your Akan name</strong>.<br><br><br>
-      </p>
-
-      <p id="result"></p>
-
-            <form id="form" onreset="clearResult()">
-                <!-- NAME TEXT AREA -->
-                 <input type="text" id="username" placeholder="Name" autocomplete="on"></input>
-                <input type="number" id="day" placeholder="Day (1-31)" required>
-                <input type="number" id="month" placeholder="Month (1-12)" required>
-                <input type="number" id="year" placeholder="Year" required>
-
-
-
-<!-- GENDER -->
- <div class="gender">
-                   <div class="gender">
-
-    <label for="gender">Choose your gender:</label>
-        <select id="gender" required> 
-          <option value=""></option>
-          <option value="female">Female</option>
-          <option value="male">Male</option><br>
-        </select>
-
-</div>
- <button type="button"onClick="getAkanName()">Get akan name</button>
-    <button type="reset">Reset</button>
- 
-            </form>
-
-           
-        </div>
-
+    <!-- LEFT SIDE (IMAGE) -->
+    <div class="left">
+      <img src="akan.jpg" alt="Akan culture">
     </div>
 
-    <script src="script.js"></script>
-    
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <h1>Akan Name Generator</h1>
+
+      <p>
+        Akan names are derived from Ghanaian culture. <br>
+        Frequently in Ghana, children are given their first name as a 'day name' 
+        which corresponds to the day in the week they were born. <br><br>
+        <strong>Fill your details below to know your Akan name</strong>.
+      </p>
+
+      <!-- RESULT (NOW IN CORRECT POSITION) -->
+      <div id="results"></div>
+
+      <!-- FORM -->
+      <form id="form-id">
+
+        <input type="text" id="full-name" placeholder="Enter your name">
+
+        <select id="gender">
+          <option value="">Select gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+
+        <input type="date" id="birth-date">
+
+        <button type="submit">Get Akan Name</button>
+        <button type="reset">Reset</button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+ <script src="script.js"></script>
 </body>
 </html>
