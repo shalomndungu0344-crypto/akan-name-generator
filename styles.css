@@ -37,13 +37,13 @@ body {
 input {
     width: 100%;
     padding: 10px;
-    margin: 8px 0;
+    margin-top: 2px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
 .gender {
-    margin:auto
+    margin-bottom: auto;
     
     
 }
@@ -63,8 +63,9 @@ button:hover {
 }
 
 #result {
-    margin-top: 20px;
+
     font-weight: bold;
     color: brown;
+    font-size: larger;
 }
 

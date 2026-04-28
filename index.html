@@ -26,9 +26,9 @@
 
       <p id="result"></p>
 
-            <form id="form">
+            <form id="form" onreset="clearResult()">
                 <!-- NAME TEXT AREA -->
-                 <textarea id="username" placeholder="Enter your name" autocomplete="on"></textarea>
+                 <input type="text" id="username" placeholder="Name" autocomplete="on"></input>
                 <input type="number" id="day" placeholder="Day (1-31)" required>
                 <input type="number" id="month" placeholder="Month (1-12)" required>
                 <input type="number" id="year" placeholder="Year" required>
@@ -48,7 +48,8 @@
 
 </div>
  <button type="button"onClick="getAkanName()">Get akan name</button>
-        <button type="reset" value="RESET" id="reset-form">RESET</button>
+    <button type="reset">Reset</button>
+ 
             </form>
 
            

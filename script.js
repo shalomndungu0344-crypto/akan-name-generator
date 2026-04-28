@@ -63,3 +63,6 @@ function getAkanName() {
   document.getElementById("result").textContent =
     userName + ", your Akan name is: " + akanName;
 }
+function clearResult() {
+    document.getElementById("result").textContent = "";
+}
