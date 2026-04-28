@@ -4,6 +4,8 @@ body {
     background-color: #f5e6da; /* pastel brown background */
     color: black;
 }
+
+
 /* MAIN LAYOUT */
 .main-container {
     display: flex;
@@ -41,8 +43,8 @@ input {
 
 .gender {
     margin:auto
-    display: flex;
-    margin-bottom: 40px ;
+    
+    
 }
 button {
      padding: 10px 60px;
@@ -52,7 +54,7 @@ button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 80px;
     gap: 30px;
 }
 button:hover {
