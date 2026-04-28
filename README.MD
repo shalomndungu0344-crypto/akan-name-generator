@@ -39,8 +39,12 @@ Akan names originate from Ghanaian culture, where children are named according t
 
 ---
 
-## ✨ Features
-- Input name, birth date, and gender
-- Calculates day of the week
-- Assigns Akan name
-- Displays result instantly
+## 📞 Contact Information
+- Email: your-email@example.com
+
+---
+
+## 📜 License
+This project is for educational purposes.
+
+© 2026 Amani. All rights reserved.
