@@ -30,3 +30,17 @@ Akan names originate from Ghanaian culture, where children are named according t
 | Invalid month (e.g. 13) | Click button | Alert "Invalid month" |
 | No gender selected | Click button | Alert "Select gender" |
 | Empty name field | Click button | Alert "Enter your name" |
+---
+
+## 🛠️ Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+---
+
+## ✨ Features
+- Input name, birth date, and gender
+- Calculates day of the week
+- Assigns Akan name
+- Displays result instantly
