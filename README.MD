@@ -6,7 +6,7 @@ Akan names originate from Ghanaian culture, where children are named according t
 
 ---
 ## 👨🏽‍💻 Author
-- Amani
+- Shalom Ndung'u
 
 ---
 
@@ -26,10 +26,10 @@ Akan names originate from Ghanaian culture, where children are named according t
 | Input | Action | Output |
 |------|--------|--------|
 | Valid date + gender | Click button | Displays correct Akan name |
-| Invalid day (e.g. 32) | Click button | Alert "Invalid day" |
-| Invalid month (e.g. 13) | Click button | Alert "Invalid month" |
-| No gender selected | Click button | Alert "Select gender" |
-| Empty name field | Click button | Alert "Enter your name" |
+|No date |click button |results "undefined"
+|No month | click button |results "undefined"
+| No gender selected | Click button | Alert "UNDEFINED" |
+| Empty name field | Click button | Displays correct Akan name |
 ---
 
 ## 🛠️ Technologies Used
@@ -40,11 +40,11 @@ Akan names originate from Ghanaian culture, where children are named according t
 ---
 
 ## 📞 Contact Information
-- Email: your-email@example.com
+- Email: shalom.ndungu@student.moringaschool.com
 
 ---
 
 ## 📜 License
 This project is for educational purposes.
 
-© 2026 Amani. All rights reserved.
+© 2026 Shalom N. All rights reserved.
