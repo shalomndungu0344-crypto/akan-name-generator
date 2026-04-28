@@ -19,3 +19,14 @@ Akan names originate from Ghanaian culture, where children are named according t
    - styles.css
    - script.js
 4. Open index.html in your browser
+---
+
+## 🧪 Behavior Driven Development (BDD)
+
+| Input | Action | Output |
+|------|--------|--------|
+| Valid date + gender | Click button | Displays correct Akan name |
+| Invalid day (e.g. 32) | Click button | Alert "Invalid day" |
+| Invalid month (e.g. 13) | Click button | Alert "Invalid month" |
+| No gender selected | Click button | Alert "Select gender" |
+| Empty name field | Click button | Alert "Enter your name" |
