@@ -1,21 +1,19 @@
 function getAkanName() {
   // Get inputs
   let userName = document.getElementById("username").value;
-  let DD = parseInt(document.getElementById("day").value); // Day
-  let MM = parseInt(document.getElementById("month").value); // Month
+  let DD = parseInt(document.getElementById("day").value);
+  let MM = parseInt(document.getElementById("month").value);
   let year = parseInt(document.getElementById("year").value);
-  // Get gender
-  let genderElement =
-    document.querySelector('input[name="gender"]:checked') ||
-    document.getElementById("gender");
 
+  
+
+  // Get gender
+  let genderElement = document.querySelector('input[name="gender"]:checked');
   let gender = genderElement ? genderElement.value : "";
 
-  // VALIDATION
-
-  // Declare CC and YY
-  let CC = Math.floor(year / 100); // First two digits
-  let YY = year % 100; // Last two digits
+  // Century and year parts
+  let CC = Math.floor(year / 100);
+  let YY = year % 100;
 
   // Akan names
   const maleNames = [
@@ -36,15 +34,22 @@ function getAkanName() {
     "Afua",
     "Ama",
   ];
-  // Declare d and calculate
-  let d = Math.floor(
-    (CC / 4 - 2 * CC - 1 + (5 * YY) / 4 + (26 * (MM + 1)) / 10 + DD) % 7,
-  );
+
+  // Calculate day index
+  let d =
+    (DD +
+      Math.floor((13 * (MM + 1)) / 5) +
+      YY +
+      Math.floor(YY / 4) +
+      Math.floor(CC / 4) -
+      2 * CC) %
+    7;
 
   // Fix negative values
   if (d < 0) {
     d = (d + 7) % 7;
   }
+
   // Get Akan name
   let akanName;
 
