@@ -38,6 +38,8 @@ Akan names originate from Ghanaian culture, where children are named according t
 - JavaScript
 
 ---
+## Live link
+https://shalomndungu0344-crypto.github.io/akan-name-generator/
 
 ## 📞 Contact Information
 - Email: shalom.ndungu@student.moringaschool.com
