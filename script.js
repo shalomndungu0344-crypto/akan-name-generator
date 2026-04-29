@@ -1,19 +1,23 @@
-//get form and use submit event to run the akan name function
+// 1. Select the form and reset elements
 let formSubmit = document.getElementById("form-id");
 let resetForm = document.getElementById("reset-form");
 
-formSubmit.addEventListener("submit", displayName);
+// 2. Event Listeners
 formSubmit.addEventListener("submit", handleForm);
+formSubmit.addEventListener("submit", displayName);
 resetForm.addEventListener("click", hideName);
 
-function getAkanName() {
-  //capture form input values
-
+/**
+ * FORMULA CALCULATION FUNCTION
+ * Uses the formula: d = ((cc/4 - 2*cc - 1) + ((5*yy)/4) + ((26*(mm+1))/10) + DD) % 7
+ */
+function calculateAkanName() {
+  // Capture values
   let fullName = document.getElementById("full-name").value;
   let gender = document.getElementById("gender").value;
   let birthDate = document.getElementById("birth-date").value;
 
-  //to note: javascript stores days in a list like array where sunday is equal to index 0
+  // Arrays for days and names
   const days = [
     "Sunday",
     "Monday",
@@ -23,8 +27,6 @@ function getAkanName() {
     "Friday",
     "Saturday",
   ];
-  //akan names stored in lists the names are stored in index corresponding to the days list
-
   const maleNames = [
     "Kwasi",
     "Kwadwo",
@@ -44,39 +46,72 @@ function getAkanName() {
     "Ama",
   ];
 
-  /* splits date input use the arguments to create a javascript date object
-where the get day method returns a number that represents day of the week.
-refer to above comments */
-  let birthDay = birthDate.split("-");
-  let birthday = new Date(
-    parseInt(birthDay[0]),
-    parseInt(birthDay[1]) - 1,
-    parseInt(birthDay[2]),
-  );
-  let day1 = birthday.getDay();
+  // Split date components
+  let dateParts = birthDate.split("-");
+  let year = parseInt(dateParts[0]);
+  let mm = parseInt(dateParts[1]);
+  let dd = parseInt(dateParts[2]);
 
+  /**
+   * FORMULA LOGIC ADJUSTMENTS:
+   * For Zeller-based formulas, Jan (1) and Feb (2) are counted as 13 and 14
+   * of the previous year to make the math work correctly.
+   */
+  if (mm <= 2) {
+    mm += 12;
+    year -= 1;
+  }
+
+  let cc = Math.floor(year / 100);
+  let yy = year % 100;
+
+  // Applying your specific formula
+  // We use Math.floor to ensure we work with whole numbers from the divisions
+  let d =
+    (Math.floor(cc / 4) -
+      2 * cc -
+      1 +
+      Math.floor((5 * yy) / 4) +
+      Math.floor((26 * (mm + 1)) / 10) +
+      dd) %
+    7;
+
+  // Normalize result: if 'd' is negative, add 7 to keep it in the 0-6 range
+  let dayIndex = Math.floor(d < 0 ? d + 7 : d);
+
+  // Return the result string based on gender
   if (gender === "female") {
-    return `Hey ${fullName}, you were born on a ${days[day1]}.
-    your Akan name is ${femaleNames[day1]} `;
+    return `Hey ${fullName}, you were born on a ${days[dayIndex]}. Your Akan name is ${femaleNames[dayIndex]}.`;
   } else {
-    return `Hey ${fullName}, you were born on a ${days[day1]}.
-    your Akan name is ${maleNames[day1]} `;
+    return `Hey ${fullName}, you were born on a ${days[dayIndex]}. Your Akan name is ${maleNames[dayIndex]}.`;
   }
 }
 
-//prevents form from submitting hence prevents form refresh
+// 3. Prevent form refresh
 function handleForm(event) {
   event.preventDefault();
 }
 
-//displays results of the getAkanName function
+// 4. Validation and Display Logic
 function displayName() {
-  message = getAkanName();
-  results = document.getElementById("results");
-  results.textContent = message;
+  let fullName = document.getElementById("full-name").value;
+  let birthDate = document.getElementById("birth-date").value;
+  let results = document.getElementById("results");
+
+  // VALIDATION: Ensure inputs are not empty
+  if (fullName.trim() === "" || birthDate === "") {
+    results.textContent =
+      "Error: Please provide both your name and birth date.";
+    results.style.color = "red";
+  } else {
+    // If valid, calculate and show name
+    let message = calculateAkanName();
+    results.textContent = message;
+    results.style.color = "black";
+  }
 }
-//sets the text in the results div to empty when reset is clicked
+
+// 5. Clear display on reset
 function hideName() {
-  results = document.getElementById("results");
-  results.textContent = "";
+  document.getElementById("results").textContent = "";
 }
