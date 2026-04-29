@@ -30,7 +30,6 @@ function getAkanName() {
 
   // create a formal js date object
   // we subtract 1 from the month because JS months are 0-indexed (0 for January, 1 for February, etc.)
-  let birthday = new Date(
     parseInt(birthDay[0]),
     parseInt(birthDay[1]) - 1,
     parseInt(birthDay[2]),
