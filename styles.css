@@ -78,4 +78,5 @@ button:hover {
     color: brown;
     border-radius: 6px;
     font-weight: bold;
+    font-size: larger;
 }
